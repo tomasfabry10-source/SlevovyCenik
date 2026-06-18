@@ -6,7 +6,10 @@
     <title>COCA-COLA SLEVOVÝ CENÍK</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
-        :root { --cc-red: #ed1c24; --cc-black: #000000; }
+        :root {
+            --cc-red: #ed1c24; 
+            --cc-black: #000000; 
+        }
         
         body { 
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
@@ -15,7 +18,7 @@
             background-color: #f4f4f4; 
             color: #333; 
         }
-
+ 
         .container { 
             max-width: 1200px; 
             margin: auto; 
@@ -24,7 +27,7 @@
             border-radius: 8px; 
             box-shadow: 0 0 20px rgba(0,0,0,0.1); 
         }
-
+ 
         h1 { 
             color: var(--cc-red); 
             border-bottom: 3px solid var(--cc-red); 
@@ -44,7 +47,7 @@
             border-radius: 5px; 
             border: 1px solid #ffcccc; 
         }
-
+ 
         .field-group { display: flex; flex-direction: column; }
         label { font-weight: bold; margin-bottom: 5px; font-size: 0.85em; color: #555; }
         input[type="text"], input[type="number"] { 
@@ -53,7 +56,7 @@
             border-radius: 4px; 
             font-size: 16px; 
         }
-
+ 
         .section-header { 
             background: var(--cc-black); 
             color: white; 
@@ -66,10 +69,10 @@
             border-radius: 4px 4px 0 0; 
             gap: 10px;
         }
-
+ 
         .section-discount-input { display: flex; align-items: center; gap: 10px; font-size: 0.85em; }
         .section-discount-input input { width: 50px; padding: 5px; border-radius: 3px; border: none; text-align: center; }
-
+ 
         .table-responsive {
             width: 100%;
             overflow-x: auto;
@@ -77,24 +80,24 @@
             border: 1px solid #ddd;
             margin-bottom: 5px;
         }
-
+ 
         table { 
             width: 100%; 
             border-collapse: collapse; 
             font-size: 0.85rem; 
             min-width: 900px; 
         }
-
+ 
         th { background: #f8f8f8; text-align: left; padding: 12px 8px; border-bottom: 2px solid #ddd; white-space: nowrap; }
         td { padding: 10px 8px; border-bottom: 1px solid #eee; }
         
         input.qty { width: 50px; padding: 5px; text-align: center; font-weight: bold; }
         input.disc { width: 45px; padding: 5px; text-align: center; }
-
+ 
         .row-total { font-weight: bold; color: var(--cc-black); white-space: nowrap; }
         .final-unit-price { font-weight: bold; color: #d32f2f; white-space: nowrap; }
         .unit-price { color: #888; font-size: 0.9em; white-space: nowrap; }
-
+ 
         .summary-bar { 
             background: var(--cc-red); 
             color: white; 
@@ -108,12 +111,12 @@
             font-weight: bold; 
             text-align: center;
         }
-
+ 
         @media (min-width: 600px) {
             .summary-bar { flex-direction: row; justify-content: space-between; text-align: left; }
             h1 { font-size: 2rem; }
         }
-
+ 
         .btn-export { 
             background: #28a745; 
             color: white; 
@@ -126,7 +129,7 @@
             width: 100%;
             margin-bottom: 20px; 
         }
-
+ 
         @media print { 
             .no-print { display: none !important; } 
             .container { box-shadow: none; border: none; padding: 0; max-width: 100%; } 
@@ -137,12 +140,12 @@
     </style>
 </head>
 <body>
-
+ 
 <div class="container" id="app-content">
     <h1>COCA-COLA SLEVOVÝ CENÍK</h1>
     
     <button class="btn-export no-print" onclick="exportPDF()">Exportovat do PDF / Uložit</button>
-
+ 
     <div class="header-fields">
         <div class="field-group">
             <label>Zákazník:</label>
@@ -157,15 +160,15 @@
             <input type="text" id="creator-contact" placeholder="Telefon / Email">
         </div>
     </div>
-
+ 
     <div id="sections-container"></div>
-
+ 
     <div class="summary-bar">
         <div>Celkem balení: <span id="grand-total-qty">0</span> ks</div>
         <div>Celkem bez DPH: <span id="grand-total-price">0.00</span> Kč</div>
     </div>
 </div>
-
+ 
 <script>
 const pricingData = {
     "Vratné skleněné lahve": [
@@ -185,22 +188,23 @@ const pricingData = {
     "Plechovky": [
         { name: "Coca-Cola / Zero / Fanta / Sprite", vol: "0.33", pack: 24, price: 510.43 },
         { name: "Kinley (všechny druhy)", vol: "0.25", pack: 24, price: 510.43 },
+        { name: "FuzeTea", vol: "0.25", pack: 24, price: 456.16 },
         { name: "Monster Energy (všechny druhy)", vol: "0.50", pack: 12, price: 387.96 }
     ],
     "Plastové lahve (PET)": [
         { name: "Coca-Cola / Zero / Fanta / Sprite", vol: "0.50", pack: 12, price: 310.94 },
         { name: "Kinley (všechny druhy)", vol: "0.50", pack: 12, price: 309.00 },
         { name: "Fuzetea (všechny druhy)", vol: "0.50", pack: 12, price: 319.68 },
-        { name: "Cappy (všechny druhy)", vol: "0.33", pack: 12, price: 309.00 },
+        { name: "Cappy (všechny druhy)", vol: "0.33", pack: 12, price: 304.92 },
         { name: "Natura (všechny druhy)", vol: "0.50", pack: 12, price: 169.20 },
         { name: "Natura Sport", vol: "0.75", pack: 12, price: 238.80 },
         { name: "Powerade (všechny druhy)", vol: "0.50", pack: 12, price: 418.80 }
     ],
     "Nápoje od 1L": [
-        { name: "Cappy pomeranč 100%", vol: "1.00", pack: 6, price: 368.63 },
-        { name: "Cappy jablko 100%", vol: "1.00", pack: 6, price: 276.26 },
-        { name: "Cappy pomeranč nektar", vol: "1.00", pack: 6, price: 276.26 },
-        { name: "Cappy jahoda / multivitamin", vol: "1.00", pack: 6, price: 276.26 },
+        { name: "Cappy pomeranč 100%", vol: "1.00", pack: 6, price: 345.54 },
+        { name: "Cappy jablko 100%", vol: "1.00", pack: 6, price: 230.16 },
+        { name: "Cappy pomeranč nektar", vol: "1.00", pack: 6, price: 230.16 },
+        { name: "Cappy jahoda / multivitamin", vol: "1.00", pack: 6, price: 230.16 },
         { name: "Cappy Pulpy (Orange / Grapefruit)", vol: "1.00", pack: 6, price: 207.62 },
         { name: "Fuzetea (všechny druhy)", vol: "1.50", pack: 6, price: 229.20 },
         { name: "Natura (všechny druhy)", vol: "1.50", pack: 6, price: 89.88 },
@@ -216,11 +220,12 @@ const pricingData = {
         { name: "Fanta / Sprite 5L BIB (27L nápoje)", vol: "5 L", pack: 1, portions: 270, price: 1290.00 }
     ]
 };
-
+ 
 function renderApp() {
     const container = document.getElementById('sections-container');
+    container.innerHTML = ''; // Vyčištění pro jistotu
     let sectionIdx = 0;
-
+ 
     for (const [sectionName, items] of Object.entries(pricingData)) {
         const isBIB = sectionName.includes("B-I-B");
         const sectionDiv = document.createElement('div');
@@ -256,7 +261,7 @@ function renderApp() {
         
         container.appendChild(sectionDiv);
         const tbody = document.getElementById(`sec-body-${sectionIdx}`);
-
+ 
         items.forEach((item, itemIdx) => {
             const divisor = item.portions || item.pack;
             const unitPrice = item.price / divisor;
@@ -279,11 +284,11 @@ function renderApp() {
     }
     updateAll();
 }
-
+ 
 function updateAll() {
     let grandTotalQty = 0;
     let grandTotalPrice = 0;
-
+ 
     const sections = document.querySelectorAll('.section-wrapper');
     sections.forEach((sec, sIdx) => {
         const secDisc = parseFloat(sec.querySelector('.sec-disc').value) || 0;
@@ -297,39 +302,39 @@ function updateAll() {
             
             const itemDisc = parseFloat(row.querySelector('.item-disc').value) || 0;
             const qty = parseInt(row.querySelector('.qty').value) || 0;
-
+ 
             const totalDisc = Math.min(100, secDisc + itemDisc);
             const finalPackPrice = basePrice * (1 - totalDisc / 100);
             const finalUnitPrice = finalPackPrice / divisor;
             const rowTotal = finalPackPrice * qty;
-
+ 
             row.querySelector('.final-unit-price').innerText = finalUnitPrice.toFixed(2);
             row.querySelector('.final-pack-price').innerText = finalPackPrice.toFixed(2);
             row.querySelector('.row-total').innerText = rowTotal.toFixed(2);
-
+ 
             grandTotalQty += qty;
             grandTotalPrice += rowTotal;
         });
     });
-
+ 
     document.getElementById('grand-total-qty').innerText = grandTotalQty;
     document.getElementById('grand-total-price').innerText = grandTotalPrice.toLocaleString('cs-CZ', {minimumFractionDigits: 2});
 }
-
+ 
 function exportPDF() {
     const element = document.getElementById('app-content');
     const opt = {
         margin:       [10, 5, 10, 5],
-        filename:     'Cenik_Coca-Cola_2026.pdf',
+        filename:    'Cenik_Coca-Cola_2026.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 2, useCORS: true, logging: false },
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' }
     };
     html2pdf().set(opt).from(element).save();
 }
-
+ 
 window.onload = renderApp;
 </script>
-
+ 
 </body>
 </html>
