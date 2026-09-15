@@ -7,77 +7,77 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         :root {
-            --cc-red: #ed1c24; 
-            --cc-black: #000000; 
-            --bg-dark: #121212;
-            --container-bg: #1e1e1e;
-            --card-bg: #2d2d2d;
-            --border-color: #333333;
-            --text-main: #f8f9fa;
-            --text-muted: #b0b0b0;
+           --cc-red: #ed1c24; 
+           --cc-black: #000000; 
+           --bg-dark: #121212;
+           --container-bg: #1e1e1e;
+           --card-bg: #2d2d2d;
+           --border-color: #333333;
+           --text-main: #f8f9fa;
+           --text-muted: #b0b0b0;
         }
         
         body { 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            margin: 0; 
-            padding: 10px; 
-            background-color: var(--bg-dark); 
-            color: var(--text-main); 
+           font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+           margin: 0; 
+           padding: 10px; 
+           background-color: var(--bg-dark); 
+           color: var(--text-main); 
         }
 
         .container { 
-            max-width: 1400px; 
-            margin: auto; 
-            background: var(--container-bg); 
-            padding: 20px; 
-            border-radius: 8px; 
-            box-shadow: 0 0 20px rgba(0,0,0,0.5); 
+           max-width: 1400px; 
+           margin: auto; 
+           background: var(--container-bg); 
+           padding: 20px; 
+           border-radius: 8px; 
+           box-shadow: 0 0 20px rgba(0,0,0,0.5); 
         }
 
         h1 { 
-            color: var(--cc-red); 
-            border-bottom: 3px solid var(--cc-red); 
-            padding-bottom: 10px; 
-            margin-top: 0; 
-            font-size: 1.5rem;
-            text-align: center;
-            text-transform: uppercase;
+           color: var(--cc-red); 
+           border-bottom: 3px solid var(--cc-red); 
+           padding-bottom: 10px; 
+           margin-top: 0; 
+           font-size: 1.5rem;
+           text-align: center;
+           text-transform: uppercase;
         }
         
         .header-fields { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 15px; 
-            margin-bottom: 25px; 
-            background: var(--card-bg); 
-            padding: 15px; 
-            border-radius: 5px; 
-            border: 1px solid var(--border-color); 
+           display: grid; 
+           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+           gap: 15px; 
+           margin-bottom: 25px; 
+           background: var(--card-bg); 
+           padding: 15px; 
+           border-radius: 5px; 
+           border: 1px solid var(--border-color); 
         }
 
         .field-group { display: flex; flex-direction: column; }
         label { font-weight: bold; margin-bottom: 5px; font-size: 0.85em; color: var(--text-muted); }
         input[type="text"], input[type="number"] { 
-            padding: 10px; 
-            border: 1px solid #444; 
-            border-radius: 4px; 
-            font-size: 16px; 
-            background: #fff;
-            color: #000;
+           padding: 10px; 
+           border: 1px solid #444; 
+           border-radius: 4px; 
+           font-size: 16px; 
+           background: #fff;
+           color: #000;
         }
 
         .section-header { 
-            background: var(--cc-red); 
-            color: white; 
-            padding: 12px 15px; 
-            margin-top: 30px; 
-            display: flex; 
-            flex-wrap: wrap;
-            justify-content: space-between; 
-            align-items: center; 
-            border-radius: 4px 4px 0 0; 
-            gap: 10px;
-            font-weight: bold;
+           background: var(--cc-red); 
+           color: white; 
+           padding: 12px 15px; 
+           margin-top: 30px; 
+           display: flex; 
+           flex-wrap: wrap;
+           justify-content: space-between; 
+           align-items: center; 
+           border-radius: 4px 4px 0 0; 
+           gap: 10px;
+           font-weight: bold;
         }
 
         .section-discount-input { display: flex; align-items: center; gap: 10px; font-size: 0.85em; }
@@ -112,7 +112,7 @@
 
         th.col-product { 
             text-align: left; 
-            width: 35%; 
+            width: 38%; 
             font-size: 0.85rem;
         }
 
@@ -121,12 +121,13 @@
             border-bottom: 1px solid var(--border-color); 
             text-align: center;
             color: var(--text-main);
+            vertical-align: middle;
         }
 
         td.col-product { 
             text-align: left; 
-            white-space: nowrap; 
             font-weight: 600;
+            line-height: 1.35;
         }
         
         input.qty { width: 40px; padding: 4px; text-align: center; font-weight: bold; color: #000; }
@@ -137,50 +138,50 @@
         .unit-price { color: var(--text-muted); white-space: nowrap; }
 
         .summary-bar { 
-            background: var(--cc-red); 
-            color: white; 
-            padding: 20px; 
-            display: flex; 
-            flex-direction: column;
-            gap: 10px;
-            border-radius: 8px; 
-            margin-top: 30px; 
-            font-size: 1.1em; 
-            font-weight: bold; 
-            text-align: center;
+           background: var(--cc-red); 
+           color: white; 
+           padding: 20px; 
+           display: flex; 
+           flex-direction: column;
+           gap: 10px;
+           border-radius: 8px; 
+           margin-top: 30px; 
+           font-size: 1.1em; 
+           font-weight: bold; 
+           text-align: center;
         }
 
         @media (min-width: 600px) {
-            .summary-bar { flex-direction: row; justify-content: space-between; text-align: left; }
-            h1 { font-size: 2rem; }
+           .summary-bar { flex-direction: row; justify-content: space-between; text-align: left; }
+           h1 { font-size: 2rem; }
         }
 
         .btn-export { 
-            background: #28a745; 
-            color: white; 
-            border: none; 
-            padding: 15px 25px; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-size: 1em; 
-            font-weight: bold; 
-            width: 100%;
-            margin-bottom: 20px; 
+           background: #28a745; 
+           color: white; 
+           border: none; 
+           padding: 15px 25px; 
+           border-radius: 5px; 
+           cursor: pointer; 
+           font-size: 1em; 
+           font-weight: bold; 
+           width: 100%;
+           margin-bottom: 20px; 
         }
 
         @media print { 
-            .no-print { display: none !important; } 
-            .container { box-shadow: none; border: none; padding: 0; max-width: 100%; background: white; color: black; } 
-            body { margin: 0; padding: 0; background-color: white; color: black; }
-            .table-responsive { overflow: visible; background: white; }
-            th { background: #eee !important; color: black !important; border-bottom: 2px solid #000; }
-            td { color: black !important; border-bottom: 1px solid #ccc; }
-            .section-header { background: #000 !important; color: white !important; }
-            .summary-bar { background: #ed1c24 !important; color: white !important; }
-            table { min-width: 100%; font-size: 6.5pt; }
-            .row-total { color: black !important; }
-            .final-unit-price { color: #d32f2f !important; }
-            .unit-price { color: #333 !important; }
+           .no-print { display: none !important; } 
+           .container { box-shadow: none; border: none; padding: 0; max-width: 100%; background: white; color: black; } 
+           body { margin: 0; padding: 0; background-color: white; color: black; }
+           .table-responsive { overflow: visible; background: white; }
+           th { background: #eee !important; color: black !important; border-bottom: 2px solid #000; }
+           td { color: black !important; border-bottom: 1px solid #ccc; }
+           .section-header { background: #000 !important; color: white !important; }
+           .summary-bar { background: #ed1c24 !important; color: white !important; }
+           table { min-width: 100%; font-size: 6.5pt; }
+           .row-total { color: black !important; }
+           .final-unit-price { color: #d32f2f !important; }
+           .unit-price { color: #333 !important; }
         }
     </style>
 </head>
@@ -193,236 +194,87 @@
 
     <div class="header-fields">
         <div class="field-group">
-            <label>Zákazník:</label>
-            <input type="text" id="cust-name" placeholder="Název provozovny">
+           <label>Zákazník:</label>
+           <input type="text" id="cust-name" placeholder="Název provozovny">
         </div>
         <div class="field-group">
-            <label>Obchodní zástupce:</label>
-            <input type="text" id="creator-name" placeholder="Vaše jméno">
+           <label>Obchodní zástupce:</label>
+           <input type="text" id="creator-name" placeholder="Vaše jméno">
         </div>
         <div class="field-group">
-            <label>Kontakt:</label>
-            <input type="text" id="creator-contact" placeholder="Telefon / Email">
+           <label>Kontakt:</label>
+           <input type="text" id="creator-contact" placeholder="Telefon / Email">
         </div>
     </div>
 
     <div id="sections-container"></div>
 
     <div class="summary-bar">
-        <div>Celkem balení: <span id="grand-total-qty">0</span> ks</div>
-        <div>Celkem bez DPH: <span id="grand-total-price">0.00</span> Kč</div>
-        <div>Celkem s DPH: <span id="grand-total-vat">0.00</span> Kč</div>
+       <div>Celkem balení: <span id="grand-total-qty">0</span> ks</div>
+       <div>Celkem bez DPH: <span id="grand-total-price">0.00</span> Kč</div>
+       <div>Celkem s DPH: <span id="grand-total-vat">0.00</span> Kč</div>
     </div>
 </div>
 
 <script>
 const pricingData = {
     "Vratné skleněné lahve": [
-        { name: "Coca-Cola", vol: "0,20", pack: 24, price: 568.80, vatRate: 21 },
-        { name: "Coca-Cola Zero", vol: "0,20", pack: 24, price: 568.80, vatRate: 21 },
-        { name: "Fuzetea černý čaj broskev a ibišek", vol: "0,25", pack: 24, price: 592.80, vatRate: 21 },
-        { name: "Fuzetea zelený čaj aloe vera s jahodou", vol: "0,25", pack: 24, price: 592.80, vatRate: 21 },
-        { name: "Kinley Tonic Water", vol: "0,25", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Kinley Purple", vol: "0,25", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Kinley Ginger Ale", vol: "0,25", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Kinley Grape", vol: "0,25", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Kinley Cherry Pepper", vol: "0,25", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Kinley Pink Aromatic Berry", vol: "0,25", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Cappy pomeranč 100%", vol: "0,25", pack: 24, price: 744.00, vatRate: 21 },
-        { name: "Cappy jablko 100%", vol: "0,25", pack: 24, price: 744.00, vatRate: 21 },
-        { name: "Cappy pomeranč 48%", vol: "0,25", pack: 24, price: 624.00, vatRate: 21 },
-        { name: "Cappy jablko 20%", vol: "0,25", pack: 24, price: 624.00, vatRate: 21 },
-        { name: "Cappy jahoda 35%", vol: "0,25", pack: 24, price: 624.00, vatRate: 21 },
-        { name: "Cappy černý rybíz 35%", vol: "0,25", pack: 24, price: 624.00, vatRate: 21 },
-        { name: "Cappy multivitamin 52%", vol: "0,25", pack: 24, price: 624.00, vatRate: 21 },
-        { name: "Cappy ananas 51%", vol: "0,25", pack: 24, price: 624.00, vatRate: 21 },
-        { name: "Cappy grep 50%", vol: "0,25", pack: 24, price: 624.00, vatRate: 21 },
-        { name: "Cappy broskev 46%", vol: "0,25", pack: 24, price: 624.00, vatRate: 21 },
-        { name: "Cappy hruška 33%", vol: "0,25", pack: 24, price: 624.00, vatRate: 21 },
-        { name: "Natura perlivá", vol: "0,30", pack: 24, price: 204.00, vatRate: 21 },
-        { name: "Natura jemně perlivá", vol: "0,30", pack: 24, price: 204.00, vatRate: 21 },
-        { name: "Natura neperlivá", vol: "0,30", pack: 24, price: 204.00, vatRate: 21 },
-        { name: "Coca-Cola", vol: "0,33", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Coca-Cola Zero", vol: "0,33", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Coca-Cola Zero Zero", vol: "0,33", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Coca-Cola Cherry", vol: "0,33", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Fanta Pomeranč", vol: "0,33", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Sprite", vol: "0,33", pack: 24, price: 616.80, vatRate: 21 },
-        { name: "Römerquelle sycená", vol: "0,33", pack: 20, price: 340.00, vatRate: 21 },
-        { name: "Römerquelle jemně sycená", vol: "0,33", pack: 20, price: 340.00, vatRate: 21 },
-        { name: "Römerquelle nesycená", vol: "0,33", pack: 20, price: 340.00, vatRate: 21 },
-        { name: "Römerquelle Blackberry", vol: "0,33", pack: 20, price: 420.00, vatRate: 21 },
-        { name: "Römerquelle Citronová tráva", vol: "0,33", pack: 20, price: 420.00, vatRate: 21 },
-        { name: "Römerquelle sycená", vol: "0,75", pack: 12, price: 408.00, vatRate: 21 },
-        { name: "Römerquelle nesycená", vol: "0,75", pack: 12, price: 408.00, vatRate: 21 }
-    ],
-    "Nevratné skleněné lahve": [
-        { name: "Three Cents Pink Grapefruit soda", vol: "0,20", pack: 24, price: 690.00, vatRate: 21 },
-        { name: "Three Cents Pineapple soda", vol: "0,20", pack: 24, price: 690.00, vatRate: 21 },
-        { name: "Three Cents Mandarin & Bergamot soda", vol: "0,20", pack: 24, price: 690.00, vatRate: 21 },
-        { name: "Three Cents Cherry Soda", vol: "0,20", pack: 24, price: 690.00, vatRate: 21 },
-        { name: "Three Cents Ginger Beer", vol: "0,20", pack: 24, price: 690.00, vatRate: 21 },
-        { name: "Three Cents Dry Tonic", vol: "0,20", pack: 24, price: 690.00, vatRate: 21 },
-        { name: "Three Cents Aegean Tonic", vol: "0,20", pack: 24, price: 690.00, vatRate: 21 },
-        { name: "Three Cents Fig Leaf Soda", vol: "0,20", pack: 24, price: 690.00, vatRate: 21 },
-        { name: "Three Cents Tonic Water", vol: "0,20", pack: 24, price: 690.00, vatRate: 21 }
+        { name: "Coca-Cola, Zero", vol: "0,20", pack: 24, price: 568.80, vatRate: 21 },
+        { name: "Fuzetea černý čaj broskev a ibišek, zelený čaj aloe vera s jahodou", vol: "0,25", pack: 24, price: 592.80, vatRate: 21 },
+        { name: "Kinley Tonic Water, Purple, Ginger Ale, Grape, Cherry Pepper, Pink Aromatic Berry", vol: "0,25", pack: 24, price: 616.80, vatRate: 21 },
+        { name: "Cappy pomeranč 100%, jablko 100%", vol: "0,25", pack: 24, price: 744.00, vatRate: 21 },
+        { name: "Cappy pomeranč 48%, jablko 20%, jahoda 35%, černý rybíz 35%, multivitamin 52%, ananas 51%, grep 50%, broskev 46%, hruška 33%", vol: "0,25", pack: 24, price: 624.00, vatRate: 21 },
+        { name: "Natura perlivá, jemně perlivá, neperlivá", vol: "0,30", pack: 24, price: 204.00, vatRate: 21 },
+        { name: "Coca-Cola, Coca-Cola Zero, Coca-Cola Zero Zero, Coca-Cola Cherry, Fanta Pomeranč, Sprite", vol: "0,33", pack: 24, price: 616.80, vatRate: 21 },
+        { name: "Römerquelle sycená, jemně sycená, nesycená", vol: "0,33", pack: 20, price: 340.00, vatRate: 21 },
+        { name: "Römerquelle Blackberry, Citronová tráva", vol: "0,33", pack: 20, price: 420.00, vatRate: 21 },
+        { name: "Römerquelle sycená, nesycená", vol: "0,75", pack: 12, price: 408.00, vatRate: 21 }
     ],
     "Plechovky": [
-        { name: "Coca-Cola", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Coca-Cola Zero", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Coca-Cola Zero Zero", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Coca-Cola Cherry", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Fanta Pomeranč", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Fanta Pomeranč Zero", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Fanta Jablko & liči Zero", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Fanta Shokata", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Fanta Exotic", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Fanta Diablo", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Sprite", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Sprite Zero", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Sprite Zero Chill Lemon mint", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Kinley Pink Aromatic Berry", vol: "0,25", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Kinley Tonic Water", vol: "0,25", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Kinley Purple", vol: "0,25", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Kinley Grape", vol: "0,25", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Kinley Cherry Pepper", vol: "0,25", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Kinley Ginger Ale", vol: "0,25", pack: 24, price: 530.93, vatRate: 21 },
-        { name: "Coca-Cola (4x0,33)", vol: "1,32", pack: 6, price: 381.38, vatRate: 21 },
-        { name: "Coca-Cola Zero (4x0,33)", vol: "1,32", pack: 6, price: 381.38, vatRate: 21 },
-        { name: "Fanta Pomeranč (4x0,33)", vol: "1,32", pack: 6, price: 381.38, vatRate: 21 },
-        { name: "Coca-Cola (6x0,33)", vol: "1,98", pack: 4, price: 373.89, vatRate: 21 },
-        { name: "Coca-Cola Zero (6x0,33)", vol: "1,98", pack: 4, price: 373.89, vatRate: 21 },
-        { name: "Fuze Tea černý čaj broskev ibišek", vol: "0,25", pack: 24, price: 456.16, vatRate: 21 },
-        { name: "Fuze Tea černý čaj mango ananas", vol: "0,25", pack: 24, price: 456.16, vatRate: 21 },
-        { name: "Monster Energy", vol: "0,50", pack: 24, price: 812.10, vatRate: 21 },
-        { name: "Monster The Doctor", vol: "0,50", pack: 24, price: 812.10, vatRate: 21 },
-        { name: "Monster Energy Zero", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Top Speed", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Lando Norris", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster The Doctor Zero", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Nitro", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Mango Loco Monster", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Monarch", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Viking Berry", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Bad Apple", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Pipeline Punch", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Aussie Lemonade", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Rio Punch", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Ultra White", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Ultra Ruby Red", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Ultra Fiesta Mango", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Ultra Rosa", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Ultra Strawberry Dreams", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Ultra Peachy Keen", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
-        { name: "Monster Energy (4x0,50)", vol: "2,00", pack: 6, price: 813.14, vatRate: 21 },
-        { name: "Monster Ultra White (4x0,50)", vol: "2,00", pack: 6, price: 813.14, vatRate: 21 },
-        { name: "Monster Aussie Lemonade (4x0,50)", vol: "2,00", pack: 6, price: 813.14, vatRate: 21 },
+        { name: "Coca-Cola, Coca-Cola Zero, Coca-Cola Zero Zero, Coca-Cola Cherry, Fanta Pomeranč, Fanta Pomeranč Zero, Fanta Jablko & liči Zero, Fanta Shokata, Fanta Exotic, Fanta Diablo, Sprite, Sprite Zero, Sprite Zero Chill Lemon mint", vol: "0,33", pack: 24, price: 530.93, vatRate: 21 },
+        { name: "Kinley Pink Aromatic Berry, Tonic Water, Purple, Grape, Cherry Pepper, Ginger Ale", vol: "0,25", pack: 24, price: 530.93, vatRate: 21 },
+        { name: "Coca-Cola (4x0,33), Coca-Cola Zero (4x0,33), Fanta Pomeranč (4x0,33)", vol: "1,32", pack: 6, price: 381.38, vatRate: 21 },
+        { name: "Coca-Cola (6x0,33), Zero (6x0,33)", vol: "1,98", pack: 4, price: 373.89, vatRate: 21 },
+        { name: "Fuze Tea černý čaj broskev ibišek, Tea černý čaj mango ananas", vol: "0,25", pack: 24, price: 456.16, vatRate: 21 },
+        { name: "Monster Energy, The Doctor", vol: "0,50", pack: 24, price: 812.10, vatRate: 21 },
+        { name: "Monster Energy Zero, Monster Top Speed, Monster Lando Norris, Monster The Doctor Zero, Monster Nitro, Mango Loco Monster, Monster Monarch, Monster Viking Berry, Monster Bad Apple, Monster Pipeline Punch, Monster Aussie Lemonade, Monster Rio Punch, Monster Ultra White, Monster Ultra Ruby Red, Monster Ultra Fiesta Mango, Monster Ultra Rosa, Monster Ultra Strawberry Dreams, Monster Ultra Peachy Keen", vol: "0,50", pack: 12, price: 406.05, vatRate: 21 },
+        { name: "Monster Energy (4x0,50), Ultra White (4x0,50), Aussie Lemonade (4x0,50)", vol: "2,00", pack: 6, price: 813.14, vatRate: 21 },
         { name: "Monster Megacan", vol: "0,553", pack: 12, price: 430.87, vatRate: 21 }
     ],
     "Plastové lahve (PET)": [
-        { name: "Cappy jablko 100%", vol: "0,33", pack: 12, price: 304.87, vatRate: 21 },
-        { name: "Cappy pomeranč nektar", vol: "0,33", pack: 12, price: 304.87, vatRate: 21 },
-        { name: "Cappy jahoda 35%", vol: "0,33", pack: 12, price: 304.87, vatRate: 21 },
-        { name: "Cappy multivitamin 50%", vol: "0,33", pack: 12, price: 304.87, vatRate: 21 },
+        { name: "Cappy jablko 100%, pomeranč nektar, jahoda 35%, multivitamin 50%", vol: "0,33", pack: 12, price: 304.87, vatRate: 21 },
         { name: "Cappy Pulpy Orange", vol: "0,33", pack: 12, price: 250.91, vatRate: 21 },
-        { name: "Cappy Lemonade Citron", vol: "0,40", pack: 12, price: 268.35, vatRate: 21 },
-        { name: "Cappy Lemonade Zero citron jahoda", vol: "0,40", pack: 12, price: 268.35, vatRate: 21 },
-        { name: "Coca-Cola", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Coca-Cola Zero", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Coca-Cola Zero Zero", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Coca-Cola Vanilia", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Coca-Cola Cherry", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Coca-Cola Lime", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Fanta Pomeranč", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Fanta Pomeranč Zero", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Fanta Jablko & liči Zero", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Fanta Shokata", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Sprite", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Sprite Zero", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Sprite Zero Chill Lemon mint", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Kinley Pink Aromatic Berry", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Kinley Purple", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Kinley Ginger Ale", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Kinley Grape", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
-        { name: "Natura neperlivá", vol: "0,50", pack: 12, price: 169.20, vatRate: 21 },
-        { name: "Natura jemně perlivá", vol: "0,50", pack: 12, price: 169.20, vatRate: 21 },
+        { name: "Cappy Lemonade Citron, Lemonade Zero citron jahoda", vol: "0,40", pack: 12, price: 268.35, vatRate: 21 },
+        { name: "Coca-Cola, Coca-Cola Zero, Coca-Cola Zero Zero, Coca-Cola Vanilia, Coca-Cola Cherry, Coca-Cola Lime, Fanta Pomeranč, Fanta Pomeranč Zero, Fanta Jablko & liči Zero, Fanta Shokata, Sprite, Sprite Zero, Sprite Zero Chill Lemon mint, Kinley Pink Aromatic Berry, Kinley Purple, Kinley Ginger Ale, Kinley Grape", vol: "0,50", pack: 12, price: 321.34, vatRate: 21 },
+        { name: "Natura neperlivá, jemně perlivá", vol: "0,50", pack: 12, price: 169.20, vatRate: 21 },
         { name: "Natura neperlivá Sport", vol: "0,75", pack: 12, price: 187.80, vatRate: 21 },
-        { name: "Natura Citron máta", vol: "0,50", pack: 12, price: 186.24, vatRate: 21 },
-        { name: "Natura Malina", vol: "0,50", pack: 12, price: 186.24, vatRate: 21 },
-        { name: "Römerquelle sycená", vol: "0,50", pack: 24, price: 380.88, vatRate: 21 },
-        { name: "Römerquelle nesycená", vol: "0,50", pack: 24, price: 380.88, vatRate: 21 },
+        { name: "Natura Citron máta, Malina", vol: "0,50", pack: 12, price: 186.24, vatRate: 21 },
+        { name: "Römerquelle sycená, nesycená", vol: "0,50", pack: 24, price: 380.88, vatRate: 21 },
         { name: "Römerquelle Citronová tráva", vol: "0,50", pack: 12, price: 211.80, vatRate: 21 },
         { name: "Glacéau Smartwater", vol: "0,60", pack: 12, price: 384.79, vatRate: 21 },
-        { name: "Fuzetea černý čaj broskev a ibišek", vol: "0,50", pack: 12, price: 319.68, vatRate: 21 },
-        { name: "Fuzetea zelený čaj aloe vera s jahodou", vol: "0,50", pack: 12, price: 319.68, vatRate: 21 },
-        { name: "Fuzetea lemon lemongrass", vol: "0,50", pack: 12, price: 319.68, vatRate: 21 },
-        { name: "Fuzetea zelený čaj citrus", vol: "0,50", pack: 12, price: 319.68, vatRate: 21 },
-        { name: "Fuzetea zelený čaj citron Zero", vol: "0,50", pack: 12, price: 319.68, vatRate: 21 },
-        { name: "Powerade Mountain Blast", vol: "0,50", pack: 12, price: 402.12, vatRate: 21 },
-        { name: "Powerade Mountain Blast Zero", vol: "0,50", pack: 12, price: 402.12, vatRate: 21 },
-        { name: "Powerade Black Currant", vol: "0,50", pack: 12, price: 402.12, vatRate: 21 },
-        { name: "Powerade Blood Orange", vol: "0,50", pack: 12, price: 402.12, vatRate: 21 },
-        { name: "Powerade Citrus", vol: "0,50", pack: 12, price: 402.12, vatRate: 21 },
-        { name: "Coca-Cola", vol: "1,00", pack: 12, price: 365.28, vatRate: 21 },
-        { name: "Coca-Cola Zero", vol: "1,00", pack: 12, price: 365.28, vatRate: 21 },
-        { name: "Coca-Cola Zero Zero", vol: "1,00", pack: 12, price: 365.28, vatRate: 21 },
-        { name: "Fanta Pomeranč", vol: "1,00", pack: 12, price: 365.28, vatRate: 21 },
-        { name: "Sprite", vol: "1,00", pack: 12, price: 365.28, vatRate: 21 },
+        { name: "Fuzetea černý čaj broskev a ibišek, zelený čaj aloe vera s jahodou, lemon lemongrass, zelený čaj citrus, zelený čaj citron Zero", vol: "0,50", pack: 12, price: 319.68, vatRate: 21 },
+        { name: "Powerade Mountain Blast, Mountain Blast Zero, Black Currant, Blood Orange, Citrus", vol: "0,50", pack: 12, price: 402.12, vatRate: 21 },
+        { name: "Coca-Cola, Coca-Cola Zero, Coca-Cola Zero Zero, Fanta Pomeranč, Sprite", vol: "1,00", pack: 12, price: 365.28, vatRate: 21 },
         { name: "Cappy pomeranč 100%", vol: "1,00", pack: 6, price: 345.56, vatRate: 21 },
-        { name: "Cappy jablko 100%", vol: "1,00", pack: 6, price: 230.14, vatRate: 21 },
-        { name: "Cappy pomeranč nektar", vol: "1,00", pack: 6, price: 230.14, vatRate: 21 },
-        { name: "Cappy jahoda 35%", vol: "1,00", pack: 6, price: 230.14, vatRate: 21 },
-        { name: "Cappy multivitamin 50%", vol: "1,00", pack: 6, price: 230.14, vatRate: 21 },
-        { name: "Cappy Pulpy Orange", vol: "1,00", pack: 6, price: 207.62, vatRate: 21 },
-        { name: "Cappy Pulpy Grapefruit", vol: "1,00", pack: 6, price: 207.62, vatRate: 21 },
-        { name: "Cappy Lemonade Citron", vol: "1,25", pack: 6, price: 201.35, vatRate: 21 },
-        { name: "Cappy Lemonade Zero citron jahoda", vol: "1,25", pack: 6, price: 201.35, vatRate: 21 },
-        { name: "Natura neperlivá", vol: "1,50", pack: 6, price: 89.88, vatRate: 21 },
-        { name: "Natura jemně perlivá", vol: "1,50", pack: 6, price: 89.88, vatRate: 21 },
-        { name: "Natura perlivá", vol: "1,50", pack: 6, price: 89.88, vatRate: 21 },
+        { name: "Cappy jablko 100%, pomeranč nektar, jahoda 35%, multivitamin 50%", vol: "1,00", pack: 6, price: 230.14, vatRate: 21 },
+        { name: "Cappy Pulpy Orange, Pulpy Grapefruit", vol: "1,00", pack: 6, price: 207.62, vatRate: 21 },
+        { name: "Cappy Lemonade Citron, Lemonade Zero citron jahoda", vol: "1,25", pack: 6, price: 201.35, vatRate: 21 },
+        { name: "Natura neperlivá, jemně perlivá, perlivá", vol: "1,50", pack: 6, price: 89.88, vatRate: 21 },
         { name: "Natura kojenecká", vol: "1,50", pack: 6, price: 94.98, vatRate: 21 },
-        { name: "Natura Citron máta", vol: "1,50", pack: 6, price: 98.58, vatRate: 21 },
-        { name: "Natura Malina", vol: "1,50", pack: 6, price: 98.58, vatRate: 21 },
-        { name: "Fuzetea černý čaj broskev a ibišek", vol: "1,50", pack: 6, price: 229.20, vatRate: 21 },
-        { name: "Fuzetea zelený čaj aloe vera s jahodou", vol: "1,50", pack: 6, price: 229.20, vatRate: 21 },
-        { name: "Fuzetea zelený čaj citrus", vol: "1,50", pack: 6, price: 229.20, vatRate: 21 },
-        { name: "Fuzetea zelený čaj citron Zero", vol: "1,50", pack: 6, price: 229.20, vatRate: 21 },
-        { name: "Fuzetea lemon lemongrass", vol: "1,50", pack: 6, price: 229.20, vatRate: 21 },
-        { name: "Kinley Tonic Water", vol: "1,50", pack: 6, price: 213.00, vatRate: 21 },
-        { name: "Kinley Tonic Water Zero", vol: "1,50", pack: 6, price: 213.00, vatRate: 21 },
-        { name: "Kinley Purple", vol: "1,50", pack: 6, price: 213.00, vatRate: 21 },
-        { name: "Kinley Ginger Ale", vol: "1,50", pack: 6, price: 213.00, vatRate: 21 },
-        { name: "Kinley Grape", vol: "1,50", pack: 6, price: 213.00, vatRate: 21 },
-        { name: "Kinley Cherry Pepper", vol: "1,50", pack: 6, price: 213.00, vatRate: 21 },
-        { name: "Kinley Pink Aromatic Berry", vol: "1,50", pack: 6, price: 213.00, vatRate: 21 },
-        { name: "Coca-Cola", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Coca-Cola Zero", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Coca-Cola Zero Zero", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Coca-Cola Cherry", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Coca-Cola Vanilla", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Coca-Cola Lime", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Fanta Pomeranč", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Fanta Pomeranč Zero", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Fanta Shokata", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Fanta Jablko & Liči Zero", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Fanta Exotic", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Fanta Diablo", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Sprite", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Sprite Zero", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
-        { name: "Coca-Cola (4x1,50)", vol: "6,00", pack: 1, price: 131.18, vatRate: 21 },
-        { name: "Coca-Cola Zero (4x1,50)", vol: "6,00", pack: 1, price: 131.18, vatRate: 21 },
-        { name: "Coca-Cola", vol: "2,00", pack: 6, price: 229.65, vatRate: 21 },
-        { name: "Coca-Cola Zero", vol: "2,00", pack: 6, price: 229.65, vatRate: 21 },
-        { name: "Fanta Pomeranč", vol: "2,00", pack: 6, price: 229.65, vatRate: 21 },
-        { name: "Sprite", vol: "2,00", pack: 6, price: 229.65, vatRate: 21 }
+        { name: "Natura Citron máta, Malina", vol: "1,50", pack: 6, price: 98.58, vatRate: 21 },
+        { name: "Fuzetea černý čaj broskev a ibišek, zelený čaj aloe vera s jahodou, zelený čaj citrus, zelený čaj citron Zero, lemon lemongrass", vol: "1,50", pack: 6, price: 229.20, vatRate: 21 },
+        { name: "Kinley Tonic Water, Tonic Water Zero, Purple, Ginger Ale, Grape, Cherry Pepper, Pink Aromatic Berry", vol: "1,50", pack: 6, price: 213.00, vatRate: 21 },
+        { name: "Coca-Cola, Coca-Cola Zero, Coca-Cola Zero Zero, Coca-Cola Cherry, Coca-Cola Vanilla, Coca-Cola Lime, Fanta Pomeranč, Fanta Pomeranč Zero, Fanta Shokata, Fanta Jablko & Liči Zero, Fanta Exotic, Fanta Diablo, Sprite, Sprite Zero", vol: "1,50", pack: 6, price: 207.09, vatRate: 21 },
+        { name: "Coca-Cola (4x1,50), Zero (4x1,50)", vol: "6,00", pack: 1, price: 131.18, vatRate: 21 },
+        { name: "Coca-Cola, Coca-Cola Zero, Fanta Pomeranč, Sprite", vol: "2,00", pack: 6, price: 229.65, vatRate: 21 }
     ],
     "B-I-B Postmix": [
-        { name: "Coca-Cola (32 L nápoje)", vol: "5,00", pack: 1, portions: 320, price: 1580.00, vatRate: 12 },
-        { name: "Coca-Cola Zero (32 L nápoje)", vol: "5,00", pack: 1, portions: 320, price: 1580.00, vatRate: 12 },
-        { name: "Kinley Tonic Water (32 L nápoje)", vol: "5,00", pack: 1, portions: 320, price: 1580.00, vatRate: 12 },
-        { name: "Fanta Pomeranč (27 L nápoje)", vol: "5,00", pack: 1, portions: 270, price: 1334.00, vatRate: 12 },
-        { name: "Sprite (27 L nápoje)", vol: "5,00", pack: 1, portions: 270, price: 1334.00, vatRate: 12 },
+        { name: "Coca-Cola (32 L nápoje), Coca-Cola Zero (32 L nápoje), Kinley Tonic Water (32 L nápoje)", vol: "5,00", pack: 1, portions: 320, price: 1580.00, vatRate: 12 },
+        { name: "Fanta Pomeranč (27 L nápoje), Sprite (27 L nápoje)", vol: "5,00", pack: 1, portions: 270, price: 1334.00, vatRate: 12 },
         { name: "Coca-Cola (128 L nápoje)", vol: "20,00", pack: 1, portions: 1280, price: 6320.00, vatRate: 12 }
+    ],
+    "Nevratné skleněné lahve": [
+        { name: "Three Cents Pink Grapefruit soda, Cents Pineapple soda, Cents Mandarin & Bergamot soda, Cents Cherry Soda, Cents Ginger Beer, Cents Dry Tonic, Cents Aegean Tonic, Cents Fig Leaf Soda, Cents Tonic Water", vol: "0,20", pack: 24, price: 690.00, vatRate: 21 }
     ],
     "Kelímky, Víčka & Brčka": [
         { name: "Papírový kelímek s logem Coca-Cola 0,3 L", vol: "0,3L", pack: 50, price: 43.55, vatRate: 21 },
@@ -460,30 +312,30 @@ function renderApp() {
         
         sectionDiv.innerHTML = `
             <div class="section-header">
-                <span>${sectionName}</span>
-                <div class="section-discount-input no-print">
-                    Plošná sleva sekce: <input type="number" class="sec-disc" data-section="${sectionIdx}" value="0" min="0" oninput="updateAll()"> %
-                </div>
+               <span>${sectionName}</span>
+               <div class="section-discount-input no-print">
+                  Plošná sleva sekce: <input type="number" class="sec-disc" data-section="${sectionIdx}" value="0" min="0" oninput="updateAll()"> %
+               </div>
             </div>
             <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="col-product">Výrobek</th>
-                            <th>Objem</th>
-                            <th>Bal.<br>(ks)</th>
-                            <th>Zákl. cena bal.<br>(bez DPH)</th>
-                            <th>${isBIB ? 'Zákl. cena/0,1L<br>(bez DPH)' : 'Zákl. cena/ks<br>(bez DPH)'}</th>
-                            <th>Sleva<br>%</th>
-                            <th>Po slevě/bal.<br>(bez DPH)</th>
-                            <th>Po slevě/ks<br>(bez DPH)</th>
-                            <th>Po slevě/bal.<br>(s DPH)</th>
-                            <th>Počet</th>
-                            <th>Celkem<br>bez DPH</th>
-                        </tr>
-                    </thead>
-                    <tbody id="sec-body-${sectionIdx}"></tbody>
-                </table>
+               <table>
+                   <thead>
+                       <tr>
+                           <th class="col-product">Výrobek</th>
+                           <th>Objem</th>
+                           <th>Bal.<br>(ks)</th>
+                           <th>Zákl. cena bal.<br>(bez DPH)</th>
+                           <th>${isBIB ? 'Zákl. cena/0,1L<br>(bez DPH)' : 'Zákl. cena/ks<br>(bez DPH)'}</th>
+                           <th>Sleva<br>%</th>
+                           <th>Po slevě/bal.<br>(bez DPH)</th>
+                           <th>Po slevě/ks<br>(bez DPH)</th>
+                           <th>Po slevě/bal.<br>(s DPH)</th>
+                           <th>Počet</th>
+                           <th>Celkem<br>bez DPH</th>
+                       </tr>
+                   </thead>
+                   <tbody id="sec-body-${sectionIdx}"></tbody>
+               </table>
             </div>
         `;
         
@@ -493,18 +345,19 @@ function renderApp() {
         items.forEach((item, itemIdx) => {
             const divisor = item.portions || item.pack;
             const tr = document.createElement('tr');
+            
             tr.innerHTML = `
-                <td class="col-product">${item.name}</td>
-                <td>${item.vol}</td>
-                <td>${item.pack}</td>
-                <td>${item.price.toFixed(2)}</td>
-                <td class="unit-price base-unit-price">0.00</td>
-                <td><input type="number" class="item-disc disc" data-section="${sectionIdx}" data-item="${itemIdx}" value="0" min="0" oninput="updateAll()"></td>
-                <td class="final-pack-price">0.00</td>
-                <td class="final-unit-price">0.00</td>
-                <td class="unit-price final-vat-price">0.00</td>
-                <td><input type="number" class="qty" data-section="${sectionIdx}" data-item="${itemIdx}" value="0" min="0" oninput="updateAll()"></td>
-                <td class="row-total">0.00</td>
+               <td class="col-product">${item.name}</td>
+               <td>${item.vol}</td>
+               <td>${item.pack}</td>
+               <td>${item.price.toFixed(2)}</td>
+               <td class="unit-price base-unit-price">0.00</td>
+               <td><input type="number" class="item-disc disc" data-section="${sectionIdx}" data-item="${itemIdx}" value="0" min="0" oninput="updateAll()"></td>
+               <td class="final-pack-price">0.00</td>
+               <td class="final-unit-price">0.00</td>
+               <td class="unit-price final-vat-price">0.00</td>
+               <td><input type="number" class="qty" data-section="${sectionIdx}" data-item="${itemIdx}" value="0" min="0" oninput="updateAll()"></td>
+               <td class="row-total">0.00</td>
             `;
             tbody.appendChild(tr);
         });
